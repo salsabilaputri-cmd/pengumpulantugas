@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Academic Space ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- SIDEBAR KIRI -->
+  <aside class="left-sidebar">
+    <div class="logo">
+      <span>LUNAR</span>
+      <span>BLOOM</span>
+    </div>
+
+    <div class="sidebar-label">🎀 MY STUDY SPACE</div>
+
+    <nav class="side-nav">
+      <a href="#home" class="nav-link active">⌂ <span>Home</span></a>
+      <a href="#documents" class="nav-link">▤ <span>Kumpulan Tugas</span></a>
+      <a href="#documents" class="nav-link">✎ <span>Materi Kuliah</span></a>
+      <a href="#profile" class="nav-link">♡ <span>Profil Saya</span></a>
+      <a href="#admin" class="nav-link">⚙ <span>Admin Dashboard</span></a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#home" class="nav-link">❀ <span>My Account</span></a>
+      <button id="sidebarLogout" class="nav-link sidebar-logout">⇥ <span>Sign Out</span></button>
+    </div>
+  </aside>
+
+  <!-- KONTEN TENGAH -->
+  <main class="main-content" id="home">
+
+    <header class="topbar">
+      <div class="mobile-logo">🌷 MY ACADEMIC SPACE</div>
+      <label class="top-search">
+        <span>⌕</span>
+        <input type="search" id="searchInput" placeholder="Search documents here...">
+      </label>
+      <div class="top-icons">
+        <span>♡</span>
+        <span>✧</span>
+      </div>
+    </header>
+
+    <!-- BANNER -->
+    <section class="hero-banner">
+      <div class="banner-copy">
+        <span class="banner-small">WELCOME TO MY LITTLE WORLD</span>
+        <h1>My Academic<br>Fairy Space</h1>
+        <p>A lovely place to learn, share, and grow together ♡</p>
+        <a href="#documents" class="banner-button">Explore Documents</a>
+      </div>
+      <div class="banner-flower">🌸</div>
+      <div class="banner-flower flower-two">🦋</div>
+      <div class="banner-flower flower-three">🌷</div>
+      <div class="banner-sparkle">✧</div>
+    </section>
+
+    <!-- PROFIL TENGAH -->
+    <section class="profile-card" id="profile">
+      <div class="profile-flower">🌷</div>
+      <div class="profile-label">MY ACADEMIC PROFILE</div>
+      <h2>Salsabila Putri</h2>
+      <p>240511035</p>
+      <p>TI24B</p>
+      <p>Teknik Informatika</p>
+      <p>Universitas Muhammadiyah Cirebon</p>
+      <div class="profile-hearts">♡　♡　♡</div>
+    </section>
+
+    <!-- STATISTIK -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div><p>Total Dokumen</p><h2 id="totalDocuments">0</h2></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div><p>Materi</p><h2 id="totalMateri">0</h2></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💌</div>
+        <div><p>Tugas</p><h2 id="totalTugas">0</h2></div>
+      </div>
+    </section>
+
+    <!-- ADMIN -->
+    <section class="content-section" id="admin">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PRIVATE STUDY AREA ♡</span>
+          <h2>Admin Dashboard</h2>
+          <p>Manage your academic documents here.</p>
+        </div>
+        <span class="section-flower">🌼</span>
+      </div>
+
+      <div id="loginPanel" class="glass-card login-panel">
+        <h3>🔐 Admin Login</h3>
+        <p>Login untuk mengelola dokumen akademik.</p>
+
+        <form id="loginForm">
+          <label for="email">Email Admin</label>
+          <input type="email" id="email" placeholder="Masukkan email" required>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Masukkan password" required>
+
+          <button type="submit" class="pink-button" id="loginBtn">Login Admin ♡</button>
+        </form>
+        <p id="loginMessage" class="message"></p>
+      </div>
+
+      <div id="adminPanel" class="glass-card hidden">
+        <div class="admin-welcome">
+          <div>
+            <h3>Welcome, Admin! 🌷</h3>
+            <p>You can manage your documents here.</p>
+          </div>
+          <button id="logoutBtn" class="soft-button">Logout</button>
+        </div>
+
+        <div class="soft-divider"></div>
+
+        <h3 id="formTitle">Add New Document ✨</h3>
+        <form id="uploadForm">
+          <input type="hidden" id="documentId">
+
+          <label for="title">Judul Dokumen</label>
+          <input type="text" id="title" placeholder="Nama dokumen..." required>
+
+          <label for="description">Deskripsi</label>
+          <textarea id="description" rows="3" placeholder="Deskripsi dokumen..."></textarea>
+
+          <label for="category">Kategori</label>
+          <select id="category" required>
+            <option value="">Pilih kategori</option>
+            <option value="Tugas">Tugas</option>
+            <option value="Materi">Materi</option>
+          </select>
+
+          <label for="deadline">Deadline</label>
+          <input type="date" id="deadline">
+
+          <label for="file">File Dokumen</label>
+          <input type="file" id="file">
+          <small class="input-note">Maksimal 50 MB. Saat edit, file boleh dikosongkan jika tidak diganti.</small>
+
+          <div class="form-actions">
+            <button type="submit" class="pink-button" id="submitBtn">Upload Document ♡</button>
+            <button type="button" id="cancelEditBtn" class="soft-button hidden">Batal Edit</button>
+          </div>
+        </form>
+        <p id="uploadMessage" class="message"></p>
+      </div>
+    </section>
+
+    <!-- DOKUMEN -->
+    <section class="content-section" id="documents">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MY LITTLE COLLECTION ♡</span>
+          <h2>Document Library</h2>
+          <p>Find your study materials and assignments.</p>
+        </div>
+        <span class="section-flower">📚</span>
+      </div>
+
+      <div class="filter-row">
+        <select id="filterCategory">
+          <option value="Semua">All Categories</option>
+          <option value="Tugas">Tugas</option>
+          <option value="Materi">Materi</option>
+        </select>
+
+        <select id="sortDocuments">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="az">Name A-Z</option>
+          <option value="za">Name Z-A</option>
+        </select>
+      </div>
+
+      <p id="documentMessage" class="message"></p>
+      <div id="documentList" class="document-grid">
+        <div class="empty-card">Loading documents... 🌷</div>
+      </div>
+    </section>
+
+    <footer>Made with love ♡ My Academic Space · 2026</footer>
+  </main>
+
+  <!-- SIDEBAR KANAN -->
+  <aside class="right-sidebar">
+    <div class="mini-profile">
+      <div class="mini-avatar">🌸</div>
+      <div>
+        <h4>Salsabila Putri</h4>
+        <p>@myacademicspace</p>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <span class="eyebrow"># MY COLORS</span>
+      <div class="color-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="right-block">
+      <div class="right-heading">
+        <h3>Study Categories</h3>
+        <span>✧</span>
+      </div>
+
+      <a href="#documents" class="category-tile">
+        <span>🛍️</span><div><b>TUGAS</b><small>Assignments</small></div>
+      </a>
+      <a href="#documents" class="category-tile">
+        <span>📖</span><div><b>MATERI</b><small>Study materials</small></div>
+      </a>
+      <a href="#documents" class="category-tile">
+        <span>🌷</span><div><b>COLLECTION</b><small>My documents</small></div>
+      </a>
+    </div>
+
+    <div class="right-block">
+      <div class="right-heading">
+        <h3>Academic Notes</h3>
+        <span>♡</span>
+      </div>
+      <div class="note-card">
+        <span>💌 A LITTLE REMINDER</span>
+        <p>Keep learning, keep growing, and don't forget to take a little rest!</p>
+      </div>
+    </div>
+
+    <div class="right-decoration">🌿</div>
+  </aside>
+
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
